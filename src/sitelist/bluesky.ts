@@ -8,7 +8,7 @@ export const site: Site = {
 			regions: [
 				{
 					id: regionId('main'),
-					title: 'Main feed',
+					title: '主信息流',
 					type: 'hide',
 					paths: 'inherit',
 					selectors: ['[data-testid="customFeedPage-feed"] > div > div:nth-child(2) > div'],

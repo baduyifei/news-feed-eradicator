@@ -126,22 +126,22 @@ export const QuoteListEditor = () => {
 						await saveQuoteListTitle(editState.quoteListId, editState.editValue.get())
 						state.editing.set(null);
 						state.quoteLists.refetch();
-					}}>Save</button>
-					<button class="tertiary" onClick={() => state.editing.set(null)}>Cancel</button>
+					}}>保存</button>
+					<button class="tertiary" onClick={() => state.editing.set(null)}>取消</button>
 				</div>
 			}
 		</Show>
 		<Show when={state.withEditingType('quoteListTitle') == null}>
 			<Show when={state.selectedQuoteListId.get() === BUILTIN_QUOTE_LIST_ID}>
-				<h3 class="font-xl">Built-in quotes</h3>
+				<h3 class="font-xl">内置名言</h3>
 			</Show>
 			<Show when={isEditable()}>
 				<div class="flex cross-center gap-2">
 					<h3 class="font-xl">{ state.selectedQuoteList()?.title }</h3>
-					<button class="tertiary bg-transparent font-sm" onClick={editListTitle} aria-label="Edit list title">✏️</button>
+					<button class="tertiary bg-transparent font-sm" onClick={editListTitle} aria-label="编辑列表标题">✏️</button>
 					<div class="flex-1" />
-					<button class="tertiary font-sm" onClick={deleteList}>Delete list</button>
-					<button class="font-sm tertiary" onClick={() => doExport(state.selectedQuoteListId.get()!)}>Export CSV</button>
+					<button class="tertiary font-sm" onClick={deleteList}>删除列表</button>
+					<button class="font-sm tertiary" onClick={() => doExport(state.selectedQuoteListId.get()!)}>导出 CSV</button>
 				</div>
 			</Show>
 		</Show>
@@ -152,7 +152,7 @@ export const QuoteListEditor = () => {
 				<QuoteEditor quote={null} afterSave={state.quoteLists.refetch} />
 			</Show>
 			<Show when={state.editing.get() == null && isEditable()}>
-				<button class="secondary font-sm w-full py-4" onClick={() => state.editing.set({type: 'newQuote'})}>+ Add Quote</button>
+				<button class="secondary font-sm w-full py-4" onClick={() => state.editing.set({type: 'newQuote'})}>+ 添加名言</button>
 			</Show>
 
 			<For each={quotes()}>
@@ -166,8 +166,8 @@ export const QuoteListEditor = () => {
 							<label class="flex-1 hoverable block cursor-pointer p-2 flex gap-2 cross-center" for={`quote-${quote.id}`}>
 								<input type="checkbox" class="checkbox" id={`quote-${quote.id}`} checked={!disabledQuoteIds().has(quote.id)} onChange={e => setQuoteEnabled(quote.id, e.currentTarget.checked)} />
 								<figure class="space-y-1">
-									<blockquote>{quote.text}</blockquote>
-									<figcaption class="text-secondary">~ {quote.author}</figcaption>
+									<blockquote class="quote-text">{quote.text}</blockquote>
+									<figcaption class="quote-author text-secondary">~ {quote.author}</figcaption>
 								</figure>
 							</label>
 								<Show when={isEditable()}>
@@ -223,27 +223,27 @@ const QuoteEditor = ({ quote, afterSave }: { quote: Quote | null, afterSave: () 
 				<div class="space-y-4 card outlined shadow p-4">
 					<div class="space-y-2">
 						<div>
-							<label class="block">Quote text</label>
+							<label class="block">名言内容</label>
 							<textarea ref={autoFocus()} rows={5} class="w-full p-2" onInput={e => setEditingQuoteText(e.currentTarget.value)} value={editingQuoteText()} />
 						</div>
 
 						<div>
-							<label class="block">Author</label>
+							<label class="block">作者</label>
 							<input type="text" class="w-full p-2" value={editingQuoteAuthor()} onInput={e => setEditingQuoteAuthor(e.currentTarget.value)} />
 						</div>
 					</div>
 
 					<div class="space-x-2">
 						<button class="primary" type="submit">
-							Save
+							保存
 						</button>
 						<Show when={quote == null}>
 							<button class="secondary" type="button" onClick={e => save(true)}>
-								Save and add another
+								保存并继续添加
 							</button>
 						</Show>
 						<button class="tertiary" type="button" onClick={cancel}>
-							Cancel
+							取消
 						</button>
 					</div>
 				</div>

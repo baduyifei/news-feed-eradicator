@@ -29,13 +29,13 @@ const PageTabs = () => {
 	const state = useOptionsPageState();
 
 	return <ul role="tablist" class="">
-		<PageTab to="sites">Sites</PageTab>
-		<PageTab to="snooze">Snooze</PageTab>
-		<PageTab to="quotes">Quotes</PageTab>
-		<PageTab to="style">Style</PageTab>
-		<PageTab to="about">About</PageTab>
+		<PageTab to="sites">站点</PageTab>
+		<PageTab to="snooze">暂停</PageTab>
+		<PageTab to="quotes">名言</PageTab>
+		<PageTab to="style">样式</PageTab>
+		<PageTab to="about">关于</PageTab>
 		<Show when={state.page.get() === 'debug'}>
-			<PageTab to="debug">Debug</PageTab>
+			<PageTab to="debug">调试</PageTab>
 		</Show>
 	</ul>;
 }
@@ -45,7 +45,7 @@ const OptionsPage = () => {
 
 	return <div class="flex axis-center text-figure">
 		<div class="w-full mw-lg space-y-8 py-4">
-			<h1 class="text-center font-3xl text-secondary">News Feed Eradicator</h1>
+			<h1 class="text-center font-3xl text-secondary">信息流屏蔽器</h1>
 
 			<OptionsPageStateContext.Provider value={state}>
 				<Snooze />
@@ -55,8 +55,8 @@ const OptionsPage = () => {
 				<Show when={!state.allSitePermissionsValid()}>
 					<div class="flex p-4 card shadow primary outlined gap-2 cross-center">
 						<div>⚠️</div>
-						<p class="flex-1 flex cross-center">Some enabled sites need more permissions to work correctly.</p>
-						<button class="primary" onClick={() => state.fixPermissions()}>Fix permissions</button>
+						<p class="flex-1 flex cross-center">部分已启用的站点需要更多权限才能正常工作。</p>
+						<button class="primary" onClick={() => state.fixPermissions()}>修复权限</button>
 					</div>
 				</Show>
 
@@ -91,7 +91,10 @@ const OptionsPage = () => {
 
 				<footer class="text-center space-y-4">
 					<div>
-						By <a href="https://west.io/">Jordan West</a> and <a href="https://github.com/jordwest/news-feed-eradicator/graphs/contributors">contributors</a>
+						由 <a href="https://west.io/">Jordan West</a> 与<a href="https://github.com/jordwest/news-feed-eradicator/graphs/contributors">贡献者们</a>开发
+					</div>
+					<div>
+						由 <a href="https://baduyifei.com">baduyifei</a> 汉化
 					</div>
 					<div class="text-secondary font-xs">{versionText()}</div>
 				</footer>

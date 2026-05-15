@@ -60,44 +60,44 @@ export const QuoteWidget = ({ siteId, theme, widgetStyle }: { siteId: SiteId | n
 				<div class="w-full position-relative">
 					<Show when={collapsed()}>
 						<div class="p-2 flex w-full axis-end position-absolute lr-0 pointer-events-none">
-							<button class="tertiary px-2 pointer-events-all" aria-label="Show News Feed Eradicator toolbar" onClick={() => setCollapsed(false)}>︙</button>
+							<button class="tertiary px-2 pointer-events-all" aria-label="显示信息流屏蔽器工具栏" onClick={() => setCollapsed(false)}>︙</button>
 						</div>
 					</Show>
 					<Show when={!collapsed()}>
 						<div class="p-2 bg-darken-100 space-x-4 flex w-full cross-center">
 							<Show when={siteId != null}>
 								<label for="theme-toggle" class="cursor-pointer text-primary gap-1 flex cross-center">
-									<span aria-label="Light mode">☀️</span>
+									<span aria-label="浅色模式">☀️</span>
 									<input id="theme-toggle" type="checkbox" checked={theme() === 'dark'} class="toggle" onInput={e => toggleTheme(e, siteId!, theme() ?? 'light')} />
-									<span aria-label="Dark mode">🌙</span>
+									<span aria-label="深色模式">🌙</span>
 								</label>
 							</Show>
 							<div class="flex-1" />
-							<button class="primary px-2 font-sm" onClick={() => setCollapsed(true)}>Hide toolbars</button>
+							<button class="primary px-2 font-sm" onClick={() => setCollapsed(true)}>隐藏工具栏</button>
 						</div>
 					</Show>
 				</div>
 				<div class={`p-4 space-y-2 ${collapsed() ? 'pr-8' : ''}`}>
-					<blockquote class="quote-border-left p-2 text-primary">{quote()?.text}</blockquote>
-					<figcaption class="text-secondary">{quote()?.author}</figcaption>
+					<blockquote class="quote-border-left quote-text p-2 text-primary">{quote()?.text}</blockquote>
+					<figcaption class="quote-author text-secondary">{quote()?.author}</figcaption>
 				</div>
 				<Show when={!collapsed()}>
 					<div class="p-2 bg-darken-100 shadow space-x-4 flex w-full">
 						<div class="space-x-2 flex-1 flex">
-							<button class="tertiary text-primary font-sm" onClick={nextQuote}>Next quote &gt;</button>
+							<button class="tertiary text-primary font-sm" onClick={nextQuote}>下一条 &gt;</button>
 							<label for="quote-toggle" class="cursor-pointer hoverable flex cross-center p-2 text-secondary rounded font-sm gap-1">
 								<input id="quote-toggle" type="checkbox" class="checkbox" checked={enabled()} onChange={e => setQuoteEnabled(e.currentTarget.checked)} />
-								<span>Show this quote in future</span>
+								<span>以后继续显示这条名言</span>
 							</label>
 							<div class="flex-1" />
-							<button class="tertiary font-sm" onClick={openOptionsPage}>More options...</button>
+							<button class="tertiary font-sm" onClick={openOptionsPage}>更多选项…</button>
 						</div>
 					</div>
 				</Show>
 		</div>
 		</Show>
 		<footer class="flex axis-center">
-				<button class="font-xs tertiary bg-transparent text-subtle text-shadow" onClick={openOptionsPage}>News Feed Eradicator</button>
+				<button class="font-xs tertiary bg-transparent text-subtle text-shadow" onClick={openOptionsPage}>信息流屏蔽器</button>
 		</footer>
 	</aside>
 }

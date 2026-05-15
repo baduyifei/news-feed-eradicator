@@ -51,10 +51,10 @@ export const HoldSnoozeButton = () => {
 
 	const snoozeButtonLabel = () => {
 		const { secondsEarned } = snoozePendingInfo() ?? {};
-		if (secondsEarned == null) return 'Press and hold to snooze';
-		if (secondsEarned === 0) return 'Keep holding...';
+		if (secondsEarned == null) return '按住以暂停';
+		if (secondsEarned === 0) return '继续按住…';
 
-		return `Snooze for ${displayDuration(secondsEarned * 1000)}`;
+		return `暂停 ${displayDuration(secondsEarned * 1000)}`;
 	}
 
 	const snoozeButtonTransform = () => {
@@ -83,14 +83,14 @@ const InstantSnoozeButton: ParentComponent<{ ms: number, primary?: boolean }> = 
 
 const InstantSnoozeButtons = () => {
 		return <div class="flex gap-2 cross-center card outlined shadow p-4">
-			<div class="text-secondary">Snooze for</div>
-			<InstantSnoozeButton ms={MINUTE}>1m</InstantSnoozeButton>
-			<InstantSnoozeButton ms={2 * MINUTE}>2m</InstantSnoozeButton>
-			<InstantSnoozeButton ms={5 * MINUTE}>5m</InstantSnoozeButton>
-			<InstantSnoozeButton primary ms={10 * MINUTE}>10m</InstantSnoozeButton>
-			<InstantSnoozeButton ms={30 * MINUTE}>30m</InstantSnoozeButton>
-			<InstantSnoozeButton ms={HOUR}>1h</InstantSnoozeButton>
-			<InstantSnoozeButton ms={DAY}>24h</InstantSnoozeButton>
+			<div class="text-secondary">暂停时长</div>
+			<InstantSnoozeButton ms={MINUTE}>1分</InstantSnoozeButton>
+			<InstantSnoozeButton ms={2 * MINUTE}>2分</InstantSnoozeButton>
+			<InstantSnoozeButton ms={5 * MINUTE}>5分</InstantSnoozeButton>
+			<InstantSnoozeButton primary ms={10 * MINUTE}>10分</InstantSnoozeButton>
+			<InstantSnoozeButton ms={30 * MINUTE}>30分</InstantSnoozeButton>
+			<InstantSnoozeButton ms={HOUR}>1小时</InstantSnoozeButton>
+			<InstantSnoozeButton ms={DAY}>24小时</InstantSnoozeButton>
 		</div>
 }
 
@@ -117,10 +117,10 @@ export const Snooze = () => {
 		<Show when={isSnoozing()}>
 			<div class="flex cross-center p-4 card secondary outlined shadow">
 				<div class="flex-1">
-					💤 Snoozing for {displayDuration((state.snoozeState.get()! - state.clock.get()))}. Scroll your life away!
+					💤 已暂停 {displayDuration((state.snoozeState.get()! - state.clock.get()))}，尽情刷个够吧！
 				</div>
 				<button class="secondary" onClick={() => state.cancelSnooze()}>
-					Cancel snooze
+					取消暂停
 				</button>
 			</div>
 		</Show>

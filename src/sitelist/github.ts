@@ -8,7 +8,7 @@ const site: Site = {
 			regions: [
 				{
 					id: regionId('dashboard'),
-					title: 'Dashboard',
+					title: '动态面板',
 					type: 'remove',
 					paths: 'inherit',
 					selectors: ['#dashboard', '#feed'],
@@ -18,7 +18,7 @@ const site: Site = {
 				},
 				{
 					id: regionId('sidebar'),
-					title: 'Sidebar',
+					title: '侧边栏',
 					type: 'remove',
 					paths: 'inherit',
 					selectors: ['aside.feed-right-column'],

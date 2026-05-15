@@ -9,7 +9,7 @@ const site: Site = {
 	regions: [
 		{
 			id: regionId('feed'),
-			title: 'Feed',
+			title: '信息流',
 			selectors: ['#siteTable', 'shreddit-feed'],
 			type: 'remove',
 			paths: 'inherit',
@@ -19,7 +19,7 @@ const site: Site = {
 		},
 		{
 			id: regionId('subreddit-feed'),
-			title: 'Subreddit Feed',
+			title: 'Subreddit 信息流',
 			selectors: ['#siteTable', 'shreddit-feed'],
 			type: 'remove',
 			paths: [
@@ -31,21 +31,21 @@ const site: Site = {
 		},
 		{
 			id: regionId('nav'),
-			title: 'Navigation tabs (Old reddit)',
+			title: '导航标签（旧版 Reddit）',
 			selectors: ['ul.tabmenu', '#sr-header-area'],
 			type: 'remove',
 			paths: '*',
 		},
 		{
 			id: regionId('carousel'),
-			title: 'Gallery Carousel',
+			title: '图集轮播',
 			selectors: ['shreddit-gallery-carousel'],
 			type: 'remove',
 			paths: '*',
 		},
 		{
 			id: regionId('nav-sidebar'),
-			title: 'Left navigation sidebar',
+			title: '左侧导航栏',
 			selectors: ['reddit-sidebar-nav'],
 			type: 'hide',
 			default: false,
@@ -53,7 +53,7 @@ const site: Site = {
 		},
 		{
 			id: regionId('sidebar'),
-			title: 'Right sidebar',
+			title: '右侧边栏',
 			selectors: ['div.side', '#right-sidebar-contents'],
 			type: 'hide',
 			default: false,
@@ -61,7 +61,7 @@ const site: Site = {
 		},
 		{
 			id: regionId('recently-viewed-links'),
-			title: 'Recently viewed',
+			title: '最近浏览',
 			selectors: ['div.spacer:has(div.sidecontentbox)', 'recent-posts'],
 			type: 'remove',
 			default: true,
@@ -69,7 +69,7 @@ const site: Site = {
 		},
 		{
 			id: regionId('games-on-reddit'),
-			title: 'Games on Reddit',
+			title: 'Reddit 游戏',
 			selectors: ['faceplate-tracker[noun="games_drawer"]', 'faceplate-tracker[noun="games_drawer"] + hr'],
 			type: 'remove',
 			default: true,

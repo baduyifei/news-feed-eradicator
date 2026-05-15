@@ -9,11 +9,11 @@ export const DebugTabContent = () => {
 
 	return <div class="p-4 space-y-2">
 		<div>
-			Version: {versionText()}
+			版本：{versionText()}
 		</div>
 		<div class="flex cross-center">
-			<h3 class="flex-1 font-bold font-lg">Storage content</h3>
-			<button class="primary" onClick={refetch}>Refresh</button>
+			<h3 class="flex-1 font-bold font-lg">存储内容</h3>
+			<button class="primary" onClick={refetch}>刷新</button>
 		</div>
 		<pre class="viewport-scroller card outlined">
 			{JSON.stringify(storage(), null, 2)}

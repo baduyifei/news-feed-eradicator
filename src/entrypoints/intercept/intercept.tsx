@@ -30,6 +30,7 @@ type RegionState = {
 	config: Region;
 	injectedElement?: HTMLDivElement;
 	injectedThemeStyleElement?: HTMLStyleElement;
+	injectedCustomStyleElement?: HTMLStyleElement;
 	shadow?: ShadowRoot;
 	css?: string;
 	enabled?: boolean;
@@ -48,6 +49,7 @@ type ContentScriptState = {
 	siteId?: SiteId;
 	ready?: boolean;
 	hideQuotes?: boolean;
+	customCss?: string;
 	widgetStyle: SignalObj<'contained' | 'transparent'>;
 	overlays: OverlayState[];
 	theme: {
@@ -175,6 +177,10 @@ function tryInject() {
 			style.textContent = `${nfeStyles}\n${sharedStyles}`;
 			shadow.appendChild(style);
 
+			region.injectedCustomStyleElement = document.createElement('style');
+			region.injectedCustomStyleElement.textContent = state.customCss ?? '';
+			shadow.appendChild(region.injectedCustomStyleElement);
+
 			const container = document.createElement('div')
 			container.id = 'nfe-container';
 			container.className = 'dark';
@@ -289,6 +295,15 @@ const patchState = (regions: DesiredRegionState[]) => {
 			activeRegion.shadow.appendChild(activeRegion.injectedThemeStyleElement);
 		}
 
+		if (activeRegion.shadow != null && activeRegion.injectedCustomStyleElement == null) {
+			activeRegion.injectedCustomStyleElement = document.createElement('style');
+			activeRegion.shadow.appendChild(activeRegion.injectedCustomStyleElement);
+		}
+
+		if (activeRegion.injectedCustomStyleElement != null) {
+			activeRegion.injectedCustomStyleElement.textContent = state.customCss ?? '';
+		}
+
 		if (activeRegion.injectedElement == null && activeRegion.config.inject != null && !state.hideQuotes) {
 			setTimeout(tryInject, 1);
 		} else if (activeRegion.injectedElement != null) {
@@ -302,7 +317,7 @@ const patchState = (regions: DesiredRegionState[]) => {
 		}
 	}
 
-	setCss(css);
+	setCss([css, state.customCss].filter(Boolean).join('\n'));
 }
 
 const isRegionBlockActive = (region: RegionState) => region.enabled && !isSnoozing()
@@ -319,6 +334,7 @@ browser.runtime.onMessage.addListener(async (msg: FromServiceWorkerMessage) => {
 		state.siteId = msg.siteId;
 		state.theme.css = msg.theme.css;
 		state.hideQuotes = msg.hideQuotes;
+		state.customCss = msg.customCss;
 		state.widgetStyle.set(msg.widgetStyle);
 		state.theme.id.set(msg.theme.id);
 

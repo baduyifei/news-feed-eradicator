@@ -52,12 +52,12 @@ export const QuoteListManager = () => {
 			}
 
 			if (quoteColumn == null) {
-				alert("Could not find a 'quote' column in the CSV. Also acceptable is 'text' or 'content'.")
+				alert("在 CSV 中找不到 'quote' 列。也可以用 'text' 或 'content'。")
 				console.error('Missing column header "quote"');
 				break;
 			}
 			if (authorColumn == null) {
-				alert("Could not find an 'author' column in the CSV. Also acceptable is 'source'.")
+				alert("在 CSV 中找不到 'author' 列。也可以用 'source'。")
 				console.error('Missing column header "author"');
 				break;
 			}
@@ -93,11 +93,11 @@ export const QuoteListManager = () => {
 	return <div class="flex">
 		<div class={`space-y-2 py-2 ${state.selectedQuoteList() == null ? 'flex-1' : 'br-1 mw-xs'}`}>
 			<div class="px-4 flex cross-center gap-4">
-				<h2 class="font-lg font-bold flex-1">Lists</h2>
+				<h2 class="font-lg font-bold flex-1">名言列表</h2>
 				<div class="flex gap-2 cross-center">
-					<label for="file-import-field" class="buttonlike font-sm tertiary user-select-none">Import CSV</label>
+					<label for="file-import-field" class="buttonlike font-sm tertiary user-select-none">导入 CSV</label>
 					<input id="file-import-field" type="file" class="none" multiple accept=".csv" onChange={e => importFromCsv(e.currentTarget.files)} />
-					<button class={`${state.selectedQuoteListId.get() == null ? 'primary' : 'secondary'} font-sm`} onClick={() => state.newQuoteList()}>+ New</button>
+					<button class={`${state.selectedQuoteListId.get() == null ? 'primary' : 'secondary'} font-sm`} onClick={() => state.newQuoteList()}>+ 新建</button>
 				</div>
 			</div>
 			<ul>
@@ -142,7 +142,7 @@ const QuoteListToggle = ({ quoteList: ql }: { quoteList: QuoteList }) => {
 	return <li class={`flex px-4 hoverable`} aria-selected={state.selectedQuoteListId.get() === ql.id}>
 		<label class="cursor-pointer flex flex-1 cross-center py-2" for={`quotelist-${ql.id}`}>
 			<input type="checkbox" class="toggle" checked={!ql.disabled} id={`quotelist-${ql.id}`} onClick={e => onQuoteListToggle(e, ql.id, !ql.disabled)} />
-			<span class="px-2">{ql.id === 'builtin' ? 'Built-in quotes' : ql.title} ({ ql.quotes === 'builtin' ? BuiltinQuotes.length : ql.quotes.length })</span>
+			<span class="px-2">{ql.id === 'builtin' ? '内置名言' : ql.title} ({ ql.quotes === 'builtin' ? BuiltinQuotes.length : ql.quotes.length })</span>
 		</label>
 	</li>
 }

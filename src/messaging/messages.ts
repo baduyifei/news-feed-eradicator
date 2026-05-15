@@ -24,6 +24,7 @@ type SiteDetails = {
 	widgetStyle: 'contained' | 'transparent',
 	snoozeUntil: number | null,
 	hideQuotes: boolean,
+	customCss: string,
 }
 
 export type DesiredRegionState = {

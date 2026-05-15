@@ -8,7 +8,7 @@ export const site: Site = {
 			regions: [
 				{
 					id: regionId('main'),
-					title: 'Single column home feed',
+					title: '单栏主页信息流',
 					type: 'hide',
 					paths: 'inherit',
 					selectors: ['#barcelona-page-layout > div > div'],
@@ -19,7 +19,7 @@ export const site: Site = {
 				},
 				{
 					id: regionId('multi-column-view'),
-					title: 'Multi column home',
+					title: '多栏主页',
 					type: 'remove',
 					paths: 'inherit',
 					selectors: ['.x78zum5.xedcshv.xw2csxc.x10wlt62.x106a9eq.x1xnnf8n.xh8yej3'],

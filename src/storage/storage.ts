@@ -37,7 +37,7 @@ const ensureMigrated = async (): Promise<void> => {
 	if (storageSync.customQuotes.length > 0) {
 		quoteLists.push({
 			id: 'migrated' as QuoteListId,
-			title: 'Custom quotes from previous version',
+			title: '旧版本的自定义名言',
 			disabledQuoteIds: [],
 			disabled: false,
 			imported: false,
@@ -87,6 +87,9 @@ export const saveRegionHideStyle = (regionHideStyle: StorageLocalV2['regionHideS
 
 export const loadWidgetStyle = () => getKey('widgetStyle', 'contained');
 export const saveWidgetStyle = (widgetTheme: StorageLocalV2['widgetStyle']) => setKey('widgetStyle', widgetTheme);
+
+export const loadCustomCss = () => getKey('customCss', '');
+export const saveCustomCss = (customCss: string) => setKey('customCss', customCss);
 
 export const loadHideQuotes = () => getKey('hideQuotes', false);
 export const saveHideQuotes = (hideQuotes: boolean) => setKey('hideQuotes', hideQuotes);

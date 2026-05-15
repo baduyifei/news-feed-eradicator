@@ -8,7 +8,7 @@ export const site: Site = {
 			regions: [
 				{
 					id: regionId('main'),
-					title: 'Main feed',
+					title: '主信息流',
 					type: 'hide',
 					paths: 'inherit',
 					// TODO: Replace aria-label with language agnostic selector

@@ -34,12 +34,12 @@ export const SnoozeTabContent = () => {
 		<div>
 			<div class="p-4 space-y-4 overlay-container">
 				<ul class="space-y-2 z1 blur-disabled" aria-disabled={state.settingsLockedDown()}>
-					<SnoozeModeOption mode="hold" title="Hold to snooze">
-						Requires you to hold the snooze button down for a while to start snoozing. The longer you hold, the longer the snooze.
+					<SnoozeModeOption mode="hold" title="按住暂停">
+						需要按住暂停按钮一段时间才会开始暂停。按得越久，暂停时间越长。
 					</SnoozeModeOption>
 
-					<SnoozeModeOption mode="instant" title="Instant snooze">
-						Not worried about your self-control? With this option you can just hit a button to start snoozing instantly.
+					<SnoozeModeOption mode="instant" title="即时暂停">
+						对自制力没把握？选这个就能一键立即开始暂停。
 					</SnoozeModeOption>
 				</ul>
 				<LockedSettingsOverlay />

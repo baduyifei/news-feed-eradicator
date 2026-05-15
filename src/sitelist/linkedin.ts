@@ -8,7 +8,7 @@ export const site: Site = {
 	regions: [
 		{
 			id: regionId('main-feed'),
-			title: 'Main feed',
+			title: '主信息流',
 			type: 'hide',
 			paths: 'inherit',
 			selectors: ["main > div.relative > .scaffold-finite-scroll", "div[componentkey^='container-update-list_mainFeed']"],
@@ -18,7 +18,7 @@ export const site: Site = {
 		},
 		{
 			id: regionId('news-sidebar'),
-			title: 'News sidebar',
+			title: '新闻侧边栏',
 			type: 'remove',
 			paths: '*',
 			selectors: ['#feed-news-module', 'div:has(> div > div[data-view-name="news-module"])'],

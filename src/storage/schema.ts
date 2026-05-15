@@ -19,6 +19,7 @@ export type StorageLocalV2 = {
 	quoteLists?: QuoteList[];
 	widgetStyle?: 'contained' | 'transparent';
 	regionHideStyle?: 'blur' | 'hidden';
+	customCss?: string;
 };
 
 export type QuoteList = {
@@ -52,7 +53,7 @@ export const defaultQuoteLists = (): QuoteList[] => [
 		id: 'custom' as QuoteListId,
 		disabled: false,
 		disabledQuoteIds: [],
-		title: 'Custom quotes',
+		title: '自定义名言',
 		imported: false,
 		quotes: [],
 	}

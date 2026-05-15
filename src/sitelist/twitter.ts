@@ -8,7 +8,7 @@ export const site: Site = {
 			regions: [
 				{
 					id: regionId('home-timeline'),
-					title: 'Main feed',
+					title: '主信息流',
 					type: 'hide',
 					paths: 'inherit',
 					selectors: [
@@ -21,7 +21,7 @@ export const site: Site = {
 				},
 				{
 					id: regionId('explore-posts'),
-					title: 'Explore "Posts For You"',
+					title: '探索页「为你推荐」',
 					type: 'remove',
 					paths: ['/explore'],
 					selectors: [

@@ -8,7 +8,7 @@ const site: Site = {
 	regions: [
 		{
 			id: regionId('main'),
-			title: 'Main feed',
+			title: '主信息流',
 			type: 'remove',
 			paths: 'inherit',
 			selectors: ['tr#bigbox td table'],

@@ -1,8 +1,8 @@
 {
   "name": "news-feed-eradicator",
-  "title": "News Feed Eradicator",
+  "title": "信息流屏蔽器",
   "id": "jid1-oWTXWc3MRzRuiQ",
-  "description": "Eradicate distractions and take back control of your browsing",
+  "description": "屏蔽干扰，重新掌控你的浏览体验",
   "author": "Jordan West",
   "license": "AGPL-3.0-only",
   "version": "3.0.4",

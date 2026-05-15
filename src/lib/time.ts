@@ -5,17 +5,17 @@ export const DAY = 24 * HOUR;
 
 export const displayDuration = (duration: number): string => {
 	if (duration < MINUTE) {
-		return `${Math.floor(duration / SECOND)}s`;
+		return `${Math.floor(duration / SECOND)}秒`;
 	}
 
 	if (duration < HOUR) {
 		const minutes = Math.floor(duration / MINUTE);
 		const seconds = Math.floor((duration - (minutes * MINUTE)) / SECOND);
-		return `${minutes}m ${seconds}s`;
+		return `${minutes}分${seconds}秒`;
 	}
 
 	const hours = Math.floor(duration / HOUR);
 	const minutes = Math.floor((duration - (hours * HOUR)) / MINUTE);
 	const seconds = Math.floor((duration - (hours * HOUR) - (minutes * MINUTE)) / SECOND);
-	return `${hours}h ${minutes}m ${seconds}s`;
+	return `${hours}时${minutes}分${seconds}秒`;
 }

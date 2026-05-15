@@ -8,7 +8,7 @@ export const site: Site = {
 	regions: [
 		{
 			id: regionId('main-feed'),
-			title: 'Main feed',
+			title: '主信息流',
 			type: 'hide',
 			paths: 'inherit',
 			selectors: ['main > :nth-child(1) > div[style]'],
@@ -19,14 +19,14 @@ export const site: Site = {
 		},
 		{
 			id: regionId('home-stories'),
-			title: 'Stories',
+			title: '快拍',
 			type: 'remove',
 			paths: 'inherit',
 			selectors: ['section > main div.xw7yly9 > div.xmnaoh6']
 		},
 		{
 			id: regionId('suggested-for-you'),
-			title: 'Suggested for you',
+			title: '为你推荐',
 			type: 'remove',
 			paths: 'inherit',
 			selectors: ['div:has(> div > a[href="/explore/people/"])']

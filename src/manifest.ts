@@ -1,7 +1,7 @@
 import packageJson from '../package.json';
 
 export default {
-	"name": "News Feed Eradicator",
+	"name": "信息流屏蔽器",
 	"version": packageJson.version,
 	"description": packageJson.description,
 	"manifest_version": 3,
@@ -9,11 +9,11 @@ export default {
 	"optional_host_permissions": ["*://*/*"],
 	"action": {
 		"default_icon": {
-			"16": "assets/icons/logo-contrast-16.png",
-			"32": "assets/icons/logo-contrast-32.png",
-			"64": "assets/icons/logo-contrast-64.png",
+			"16": "assets/icon16.png",
+			"32": "assets/icon32.png",
+			"64": "assets/icon64.png",
 		},
-		"default_title": "News Feed Eradicator"
+		"default_title": "信息流屏蔽器"
 	},
 	"background": {
 		"service_worker": "entrypoints/service-worker/service-worker.js",
