@@ -1,7 +1,7 @@
 import packageJson from '../package.json';
 
 export default {
-	"name": "信息流屏蔽器",
+	"name": packageJson.title,
 	"version": packageJson.version,
 	"description": packageJson.description,
 	"manifest_version": 3,
@@ -13,7 +13,7 @@ export default {
 			"32": "assets/icon32.png",
 			"64": "assets/icon64.png",
 		},
-		"default_title": "信息流屏蔽器"
+		"default_title": packageJson.title
 	},
 	"background": {
 		"service_worker": "entrypoints/service-worker/service-worker.js",

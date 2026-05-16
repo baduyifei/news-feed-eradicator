@@ -12,6 +12,7 @@ import { SnoozeTabContent } from "./tabs/snooze";
 import { DebugTabContent } from "./tabs/debug";
 import { StyleTabContent } from "./tabs/style";
 import { versionText } from "/lib/util";
+import packageJson from '../../../package.json';
 
 const PageTab: ParentComponent<{to: PageId}> = ({ to, children }) => {
 	const state = useOptionsPageState();
@@ -45,7 +46,7 @@ const OptionsPage = () => {
 
 	return <div class="flex axis-center text-figure">
 		<div class="w-full mw-lg space-y-8 py-4">
-			<h1 class="text-center font-3xl text-secondary">信息流屏蔽器</h1>
+			<h1 class="text-center font-3xl text-secondary">{packageJson.title}</h1>
 
 			<OptionsPageStateContext.Provider value={state}>
 				<Snooze />
@@ -91,10 +92,10 @@ const OptionsPage = () => {
 
 				<footer class="text-center space-y-4">
 					<div>
-						由 <a href="https://west.io/">Jordan West</a> 与<a href="https://github.com/jordwest/news-feed-eradicator/graphs/contributors">贡献者们</a>开发
+						基于 <a href="https://west.io/">Jordan West</a> 与<a href="https://github.com/jordwest/news-feed-eradicator/graphs/contributors">贡献者们</a>开发的开源项目
 					</div>
 					<div>
-						由 <a href="https://baduyifei.com">baduyifei</a> 汉化
+						非官方中文汉化与维护：<a href="https://baduyifei.com">baduyifei</a>
 					</div>
 					<div class="text-secondary font-xs">{versionText()}</div>
 				</footer>

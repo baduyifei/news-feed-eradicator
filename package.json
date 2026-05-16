@@ -1,9 +1,9 @@
 {
   "name": "news-feed-eradicator",
-  "title": "信息流屏蔽器",
+  "title": "信息流屏蔽器 - 中文版",
   "id": "jid1-oWTXWc3MRzRuiQ",
-  "description": "屏蔽干扰，重新掌控你的浏览体验",
-  "author": "Jordan West",
+  "description": "基于 News Feed Eradicator 的非官方中文汉化版，用名言替换社交媒体信息流，帮助减少干扰。",
+  "author": "Jordan West and contributors; Chinese localization by baduyifei",
   "license": "AGPL-3.0-only",
   "version": "3.0.4",
   "type": "module",
